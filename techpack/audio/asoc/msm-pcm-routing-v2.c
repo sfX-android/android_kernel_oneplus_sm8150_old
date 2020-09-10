@@ -1053,7 +1053,7 @@ static struct cal_block_data *msm_routing_find_topology_by_path(int path,
 		cal_block = list_entry(ptr,
 			struct cal_block_data, list);
 
-		if (cal_utils_is_cal_stale(cal_block))
+		if (cal_utils_is_cal_stale(cal_block, cal_data[cal_index]))
 			continue;
 
 		pr_info("%s %d\n", __func__, ((struct audio_cal_info_adm_top *)cal_block->cal_info)->acdb_id );
@@ -1084,7 +1084,7 @@ static struct cal_block_data *msm_routing_find_topology(int path,
 		cal_block = list_entry(ptr,
 			struct cal_block_data, list);
 
-		if (cal_utils_is_cal_stale(cal_block))
+		if (cal_utils_is_cal_stale(cal_block, cal_data[cal_index]))
 			continue;
 
 		cal_info = (struct audio_cal_info_adm_top *)
